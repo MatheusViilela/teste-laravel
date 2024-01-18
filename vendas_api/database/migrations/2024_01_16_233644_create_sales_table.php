@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('client_id');
             $table->unsignedBigInteger('product_id');
-            $table->integer('quantity');
             $table->decimal('unit_price', 10, 2);
             $table->float('discount', 8, 2)->nullable();
             $table->decimal('total', 10, 2);

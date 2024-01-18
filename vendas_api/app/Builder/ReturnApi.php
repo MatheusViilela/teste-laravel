@@ -25,6 +25,7 @@ final class ReturnApi
             'developerMessage' => $developerMessage,
             'exception' => $exception,
             'data' => $data
+            
         ];
 
         return response()->json($result,  $statusHTTP, [], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);

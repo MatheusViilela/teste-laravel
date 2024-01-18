@@ -22,11 +22,11 @@ Handle an incoming request.*
             $user = FacadesJWTAuth::parseToken()->authenticate();
         } catch (\Exception $e) {
             if ($e instanceof \Tymon\JWtAuth\Exceptions\TokenInvalidException) {
-                return ReturnApi::messageReturn(true, "Faça login para acessar o sistema", $e->getMessage(), null, 401);
+                return ReturnApi::messageReturn(true, "Faça login para acessar o sistema", "Token is invalid", $e->getMessage(), null, 401);
             } else if ($e instanceof \Tymon\JWtAuth\Exceptions\TokenExpiredException) {
-                return ReturnApi::messageReturn(true, "Login expirado, saia e entre novamente", $e->getMessage(), null, 401);
+                return ReturnApi::messageReturn(true, "Login expirado, saia e entre novamente", "Token expired", $e->getMessage(), null, 401);
             } else {
-                return ReturnApi::messageReturn(true, "Token de autorização não informado", $e->getMessage(), null, 401);
+                return ReturnApi::messageReturn(true, "Token de autorização não informado", "Auth token not found", $e->getMessage(), null, 401);
             }
         }
         return $next($request);
