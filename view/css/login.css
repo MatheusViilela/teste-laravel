@@ -1,0 +1,14 @@
+body{
+   background-color: #79797976 !important;
+}
+.container{
+
+    background-color: #F8F8F8;
+    width: 100vh !important;
+    border-radius: 10px;  
+}
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+}

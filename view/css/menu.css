@@ -1,0 +1,95 @@
+/**
+ * @author Cavalcante  <ribeirocavalcantejean@gmail.com>
+ *
+ * Owned by:    none
+ * Function:    Style a sidebar lateral-menu
+ * 
+ * Last updated at 2023/01/05
+ *
+ * This CSS code is mainly to add a BACKGROUND-COLOR with BORDER-RADIUS as
+ * highlight for text.
+ *
+ */
+
+
+.sidenav {
+  height: 100%;
+  width: 0; 
+  position: fixed; 
+  z-index: 1; 
+  top: 0;   
+  left: 0;  /* This makes it so the browser treats the menu as a Vertical menu, instead of an horizontal one. */
+  background-color: white;
+  border-right: 0px solid gray;
+  word-wrap:  wrap;
+  overflow-x: hidden; 
+  padding-top: 60px; 
+  
+}
+
+.sidenav a {
+  padding: 0.25rem 0.25rem 0.25rem 1rem;
+  text-decoration: none;
+  font-size: 2vw;
+  color: #787878;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav .title {
+  padding: 0.25rem 0.25rem 0.25rem 1rem;
+  text-decoration: none;
+  font-size: 2.5vw;
+  color: #565656;
+  display: block;
+  transition: 0.3s;
+}
+
+.smallSubtitle {
+  padding: 0.25rem 0.25rem 0.25rem 1rem;
+  text-decoration: none;
+  font-size: 2vw;
+  color: #868686;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #ffffff;
+  background-color: #454545;
+}
+
+.menu-icon-wrapper {
+    background-color:  white;
+    height:  100%;
+    left:  0;
+    top: 0;
+    position:  fixed;
+    border-right:  1px solid #bababa;
+}
+.menu-icon {
+    font-size: 3rem;
+    padding: 1rem;
+}
+
+.menu-icon:hover {
+    background-color: #cccccc;
+    color:  black;
+    cursor:  pointer;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-width: 480px) {
+  .menu-icon-wrapper { position: relative;}
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 1.5rem;}
+  .sidenav .title  {font-size: 2.25rem;}
+  .smallSubtitle  {font-size: 1.75rem}
+}
