@@ -1,13 +1,14 @@
 let ProdutoId
 
-function editar(idProduto) {
-    var rowIndex = $('#dataTableClientes').DataTable().row('[data-index="' + idProduto + '"]').index();
-    var data = $('#dataTableClientes').DataTable().row(rowIndex).data();
+function editar(rowIndex) {
+    var data = $('#dataTableProdutos').DataTable().row(rowIndex).data();
+    console.log(data);
     $("#name").val(data.name);
     $("#desc").val(data.description);
     $("#categoria").val(data.category);
     $("#preco").val(data.price);
-    ProdutoId = idProduto
+    ProdutoId = data.id;
+
 
     $(".insert").hide();
     $(".edit").show();
@@ -33,7 +34,7 @@ function deletar(ProdutoId) {
 $(document).ready(function () {
     $('#preco').mask('##0.00', { reverse: true });
 
-    $('#dataTableClientes').DataTable({
+    $('#dataTableProdutos').DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": {
@@ -51,10 +52,13 @@ $(document).ready(function () {
             {
                 "data": "id",
                 "render": function (data, type, row, meta) {
-                    return '<button type="button" class="btn btn-primary" data-index="' + meta.row + '" onclick="editar(' + data + ')">Editar</button> <button type="button" class="btn btn-danger" onclick="deletar(' + data + ')">Excluir</button>';
+                    return '<button type="button" class="btn btn-primary" data-index="' + meta.row + '" onclick="editar(' + meta.row + ')">Editar</button> <button type="button" class="btn btn-danger" onclick="deletar(' + data + ')">Excluir</button>';
                 }
             }
-        ]
+        ],
+        "language": {
+            "url": "https://cdn.datatables.net/plug-ins/1.10.21/i18n/Portuguese-Brasil.json"
+        },
     });
     $("#save").on("click", function (event) {
         let clienteData = {
@@ -76,6 +80,7 @@ $(document).ready(function () {
         });
     });
     $("#edit").on("click", function (event) {
+        console.log(ProdutoId);
         let clienteData = {
             'id': ProdutoId,
             'name': $("#name").val(),

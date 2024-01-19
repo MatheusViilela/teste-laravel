@@ -6,6 +6,6 @@ $("#submit").on("click", function (event) {
         localStorage.setItem('token', token);
         window.location.href = 'home.html';
     }, function (erro) {
-        console.log(erro);
+    
     });
 }); 

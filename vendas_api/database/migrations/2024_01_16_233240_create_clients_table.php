@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('birth_date');
             $table->string('gender', 1);
             $table->string('phone', 11);
-            $table->string('cep', 8);
+            $table->string('cep', 9);
             $table->string('address', 100);
             $table->string('address_number', 10);
             $table->string('address_complement', 100)->nullable();

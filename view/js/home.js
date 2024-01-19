@@ -1,6 +1,5 @@
 var idCliente;
-function editar(clienteId) {
-    var rowIndex = $('#dataTableClientes').DataTable().row('[data-index="' + clienteId + '"]').index();
+function editar(rowIndex) {
     var data = $('#dataTableClientes').DataTable().row(rowIndex).data();
 
     $("#name").val(data.name);
@@ -19,7 +18,7 @@ function editar(clienteId) {
 
     $(".insert").hide();
     $(".edit").show();
-    idCliente = clienteId
+    idCliente = data.id;
 
 
 }
@@ -40,7 +39,6 @@ function deletar(clienteId) {
         });
     }
 }
-
 $(document).ready(function () {
     $('#dataTableClientes').DataTable({
         "processing": true,
@@ -69,10 +67,16 @@ $(document).ready(function () {
             {
                 "data": "id",
                 "render": function (data, type, row, meta) {
-                    return '<button type="button" class="btn btn-primary" data-index="' + meta.row + '" onclick="editar(' + data + ')">Editar</button> <button type="button" class="btn btn-danger" onclick="deletar(' + data + ')">Excluir</button>';
+                    return '<div class="btn-group" role="group">' +
+                        '<button type="button" class="btn btn-primary" data-index="' + meta.row + '" onclick="editar(' + meta.row + ')" style="margin-right: 5px;">Editar</button>' +
+                        '<button type="button" class="btn btn-danger" onclick="deletar(' + data + ')">Excluir</button>' +
+                        '</div>';
                 }
             }
-        ]
+        ],
+        "language": {
+            "url": "https://cdn.datatables.net/plug-ins/1.10.21/i18n/Portuguese-Brasil.json"
+        },
     });
 
     $("#edit").on("click", function (event) {

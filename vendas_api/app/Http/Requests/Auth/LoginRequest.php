@@ -30,7 +30,6 @@ class LoginRequest extends FormRequest
                 'string',
                 'email',
                 'required',
-                'exists:users,email'
             ],
             'password' => [
                 'string',

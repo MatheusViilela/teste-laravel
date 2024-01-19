@@ -17,7 +17,7 @@ function fazerRequisicaoLogin(url, metodo, dados, callbackSucesso, callbackErro)
         },
         error: function (erro) {
             if (callbackErro) {
-                callbackErro(erro.message);
+                alert(erro.responseJSON.message);
             }
         }
     });
@@ -39,6 +39,7 @@ function fazerRequisicao(url, metodo, dados, callbackSucesso, callbackErro) {
         },
         error: function (erro) {
             if (callbackErro) {
+                console.log("aqui")
                 alert(erro.responseJSON.message);
             }
         }

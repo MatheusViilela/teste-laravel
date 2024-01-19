@@ -18,7 +18,7 @@ class SaleController extends Controller
     }
     public function list()
     {
-        return ReturnApi::Success("Vendas listadas com sucesso", Sale::all());
+        return ReturnApi::Success("Vendas listadas com sucesso", Sale::all()->load(['client', 'product']));
     }
     public function delete(DeleteSaleRequest $request)
     {

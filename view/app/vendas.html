@@ -64,7 +64,7 @@
                 <div class="form-group row">
                     <div class="col-sm-4 ">
                         <label for="flg_pgto">Forma de Pagamento</label>
-                        <select class="form-control" name="flg_pgto" id="">
+                        <select class="form-control" name="flg_pgto" id="flg_pgto">
                             <option value="">Selecione</option>
                             <option value="DI">Dinheiro</option>
                             <option value="CC">Cartão de Crédito</option>
@@ -91,9 +91,8 @@
                         </select>
                     </div>
                     <div class="col-sm-4 ">
-                        <label for="categoria">Observação</label>
-                        <input id="categoria" class="form-control" type="text" name="categoria"
-                            placeholder="Digite a categoria" required>
+                        <label for="obs">Observação</label>
+                        <input id="obs" class="form-control" type="text" name="obs" placeholder="Observações" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -107,6 +106,11 @@
                         <input id="total" class="form-control" type="text" readonly name="total"
                             placeholder="Valor Total R$" required>
                     </div>
+                    <div class="col-sm-3 ">
+                        <label for="dataVenda">Data da Venda</label>
+                        <input id="dataVenda" class="form-control" type="date" name="dataVenda" required value="">
+                    </div>
+
                     <div class="col-sm-3 ">
                         <input id="totalAux" type="hidden" readonly name="total">
                     </div>
@@ -131,13 +135,18 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTableClientes" width="100%" cellspacing="0">
+                    <table class="table table-bordered" id="dataTableVendas" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Nome</th>
-                                <th>Descrição</th>
-                                <th>Categoria</th>
-                                <th>Preço</th>
+                                <th>Cliente</th>
+                                <th>Produto</th>
+                                <th>Desconto</th>
+                                <th>Forma de Pagamento</th>
+                                <th>Parcelas</th>
+                                <th>Valor da Parcela</th>
+                                <th>Total</th>
+                                <th>Observação</th>
+                                <th>Data da Venda</th>
                                 <th>Ações</th>
                             </tr>
                         </thead>

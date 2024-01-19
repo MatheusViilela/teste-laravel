@@ -39,16 +39,9 @@ class UpdateSaleRequest extends FormRequest
                 'integer',
                 'exists:products,id'
             ],
-            'quantity' => [
-                'required',
-                'integer',
-            ],
-            'unit_price' => [
-                'required',
-                'numeric',
-            ],
             'discount' => [
                 'numeric',
+                'nullable',
             ],
             'total' => [
                 'required',
@@ -67,10 +60,9 @@ class UpdateSaleRequest extends FormRequest
             ],
             'installment_value' => [
                 'numeric',
+                'nullable',
             ],
-            'observation' => [
-                'string',
-            ],
+            'observation' => [],
 
             //
         ];
